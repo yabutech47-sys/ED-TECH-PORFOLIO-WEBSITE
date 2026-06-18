@@ -1,6 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Target, Users, Zap, Shield, Globe, Award, ChevronRight } from 'lucide-react';
+import team1 from '../img/team1.jpg';
+import team2 from '../img/team2.jpg';
+import team3 from '../img/team3.jpg';
+import team4 from '../img/team4.jpg';
+import team5 from '../img/team5.jpg';
+import team6 from '../img/team6.jpg';
 
 const AboutPage = () => {
   const containerVariants = {
@@ -17,9 +23,13 @@ const AboutPage = () => {
   };
 
   const team = [
-    { name: "Dr. Abebe Bekele", role: "CEO & Founder", img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=400" },
-    { name: "Sara Solomon", role: "Head of Innovation", img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400" },
-    { name: "Dawit Mekonnen", role: "Chief Technology Officer", img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400" },
+    { name: "Inku Fassil", role: "CEO & Founder", img: team1 },
+    { name: "Ruth Yeshitila", role: "Deputy CEO", img: team2 },
+    { name: "Assegid Nigusse", role: "Admin and Finance Head", img: team4 },
+    { name: "Yabsera Teshome", role: "Tech Lead", img: team3 },
+    { name: "Abel Girma", role: "Training Coordinator", img: team5 },
+    { name: "Kalkidan Teka", role: "Video Editor and Social Media Manager", img: team6 },
+    
   ];
 
   return (
@@ -59,7 +69,7 @@ const AboutPage = () => {
           >
             <div className="aspect-video rounded-3xl overflow-hidden shadow-2xl relative group">
               <img 
-                src="https://storage.googleapis.com/dala-prod-public-storage/generated-images/33943c95-e4d1-4c21-8271-ff184160c372/about-us-office-6cbff6a3-1774606606949.webp" 
+                src="../src/img/group.jpg" 
                 alt="About Office" 
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />

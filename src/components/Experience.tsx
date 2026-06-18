@@ -31,9 +31,9 @@ const Counter = ({ value, label, suffix = "+" }: { value: number; label: string;
 const Experience = () => {
   const stats = [
     { value: 12, label: "Years of Excellence", suffix: "+" },
-    { value: 50, label: "Institutional Partners", suffix: "+" },
+    { value: 10, label: "Institutional Partners", suffix: "+" },
     { value: 25000, label: "Certified Educators", suffix: "+" },
-    { value: 1, label: "Million Students", suffix: "M+" },
+    { value: 1000, label: "Trainings", suffix: "+" },
   ];
 
   return (

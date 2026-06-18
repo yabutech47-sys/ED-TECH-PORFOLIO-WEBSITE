@@ -26,7 +26,7 @@ const Hero = () => {
           viewport={{ once: false, amount: 0.1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <span className="inline-block px-4 py-1.5 mb-6 text-xs font-black tracking-[0.2em] uppercase border border-primary/20 rounded-full bg-primary/5 backdrop-blur-md text-primary">
+          <span className="inline-block px-4 py-1.5 mb-6 text-xs font-black tracking-[0.2em] uppercase border border-primary/20 rounded-full bg-primary/5 backdrop-blur-md text-">
             Next Generation Learning
           </span>
           <h1 className="text-5xl md:text-8xl font-black mb-8 leading-[1.1] tracking-tight text-foreground uppercase">

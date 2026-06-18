@@ -61,14 +61,19 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row justify-between items-center pt-12 border-t border-border gap-6">
-          <p className="text-muted-foreground text-sm font-medium">\u00a9 2024 EdTech Hub Ethiopia. All rights reserved.</p>
-          <div className="flex items-center gap-8">
-            <span className="text-muted-foreground text-sm font-medium hover:text-blue-600 cursor-pointer transition-colors">Terms of Service</span>
-            <div className="flex items-center gap-2 bg-blue-600/5 px-3 py-1 rounded-full border border-blue-600/10">
-              <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-              <span className="text-blue-600 text-[10px] font-black uppercase tracking-widest">Systems Operational</span>
+        <div className="flex flex-col gap-4 pt-12 border-t border-border">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-muted-foreground text-sm font-medium">EdTech Hub Ethiopia. All rights reserved.</p>
+            <div className="flex items-center gap-8">
+              <span className="text-muted-foreground text-sm font-medium hover:text-blue-600 cursor-pointer transition-colors">Terms of Service</span>
+              <div className="flex items-center gap-2 bg-blue-600/5 px-3 py-1 rounded-full border border-blue-600/10">
+                <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                <span className="text-blue-600 text-[10px] font-black uppercase tracking-widest">Systems Operational</span>
+              </div>
             </div>
+          </div>
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground font-medium">
+            <a href="mailto:yabumac01@gmail.com" className="text-blue-600 hover:text-blue-800 transition-colors">Developed by Yeabsera | Tech Lead</a>
           </div>
         </div>
       </div>

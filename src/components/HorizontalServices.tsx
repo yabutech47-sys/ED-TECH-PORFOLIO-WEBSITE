@@ -9,29 +9,29 @@ gsap.registerPlugin(ScrollTrigger);
 
 const services = [
   {
-    title: "Digital Books Module",
-    description: "Interactive 3D reading experiences with embedded multimedia and AI-driven comprehension tools.",
+    title: "Digital Books",
+    description: "Interactive reading experiences with embedded multimedia and Interactivity Based comprehension tools.",
     icon: BookOpen,
     image: "https://storage.googleapis.com/dala-prod-public-storage/generated-images/33943c95-e4d1-4c21-8271-ff184160c372/digital-books-module-b1eecc98-1774609534565.webp",
     color: "from-blue-600 to-indigo-600"
   },
   {
-    title: "Design Training",
-    description: "Master the craft of UI/UX and visual storytelling with our industry-leading design curriculum.",
+    title: "Module Design",
+    description: "Master the craft of UI/UX and visual storytelling with our industry-leading design team.",
     icon: Palette,
     image: "https://storage.googleapis.com/dala-prod-public-storage/generated-images/33943c95-e4d1-4c21-8271-ff184160c372/design-training-e2d46b12-1774609534545.webp",
     color: "from-purple-600 to-pink-600"
   },
   {
-    title: "Teacher LMS Network",
+    title: "LMS Support",
     description: "Empowering educators through our advanced Learning Management System with integrated teaching tools.",
     icon: Users,
     image: "https://storage.googleapis.com/dala-prod-public-storage/generated-images/33943c95-e4d1-4c21-8271-ff184160c372/teachers-through-lms-website-ca65fa3a-1774609535071.webp",
     color: "from-cyan-500 to-blue-500"
   },
   {
-    title: "Advanced Training",
-    description: "Immersive workshops using holographic displays and AI-assisted curriculum design.",
+    title: "Live Training",
+    description: "Immersive workshops using holographic displays and and hands-on learning.",
     icon: Laptop,
     image: "https://storage.googleapis.com/dala-prod-public-storage/generated-images/33943c95-e4d1-4c21-8271-ff184160c372/tech-education-future-921f7159-1774604060281.webp",
     color: "from-blue-400 to-cyan-400"
@@ -250,7 +250,7 @@ const HorizontalServices = () => {
               </div>
 
               <h3 className="text-3xl md:text-5xl font-black text-primary-foreground mb-3 md:mb-6 tracking-tighter leading-tight uppercase">
-                Evolve <br /> Now
+                Explore More!!! <br /> Now
               </h3>
               
               <p className="text-[10px] md:text-[14px] font-bold mb-4 md:mb-8 max-w-[170px] md:max-w-[280px] text-primary-foreground/90 uppercase tracking-[0.2em]">
@@ -283,7 +283,7 @@ const HorizontalServices = () => {
                   className="flex items-center gap-2 text-primary font-black uppercase text-[10px] tracking-widest"
                 >
                   Get in touch
-                  <Fingerprint size={16} />
+                  <Fingerprint size={30} />
                 </button>
               </div>
             </div>
