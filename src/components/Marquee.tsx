@@ -1,13 +1,18 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import placeholderLogo from '../img/vision.jpg';
+import logo from '../img/EdTech Hub ET Profile.png';
+import logo2 from '../img/EdTech Hub ET Profile (1).png';
+import logo3 from '../img/EdTech Hub ET Profile (2).png';
+import logo4 from '../img/EdTech Hub ET Profile (3).png'; 
+import logo5 from '../img/EdTech Hub ET Profile (4).png'; 
 
 const LOGOS = [
-  'https://storage.googleapis.com/dala-prod-public-storage/generated-images/33943c95-e4d1-4c21-8271-ff184160c372/logo1-9df57aee-1774616303692.webp',
-  'https://storage.googleapis.com/dala-prod-public-storage/generated-images/33943c95-e4d1-4c21-8271-ff184160c372/logo2-8dfa51ec-1774616303754.webp',
-  'https://storage.googleapis.com/dala-prod-public-storage/generated-images/33943c95-e4d1-4c21-8271-ff184160c372/logo3-b469d1c3-1774616303620.webp',
-  'https://storage.googleapis.com/dala-prod-public-storage/generated-images/33943c95-e4d1-4c21-8271-ff184160c372/logo4-0e50ae08-1774616304126.webp',
-  'https://storage.googleapis.com/dala-prod-public-storage/generated-images/33943c95-e4d1-4c21-8271-ff184160c372/logo5-a697cdf0-1774616303559.webp',
-  'https://storage.googleapis.com/dala-prod-public-storage/generated-images/33943c95-e4d1-4c21-8271-ff184160c372/logo6-c2fc2ce5-1774616303798.webp',
+  logo,
+  logo2,
+  logo3,
+  logo4,
+  logo5,
 ];
 
 export default function Marquee() {
@@ -44,7 +49,7 @@ export default function Marquee() {
                 <img 
                   src={logo} 
                   alt={`Partner ${i}`} 
-                  className="max-w-full max-h-full object-contain filter invert dark:invert-0"
+                  className="max-w-full max-h-full object-contain filter "
                 />
               </div>
             ))}

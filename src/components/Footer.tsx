@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowUpRight, Mail, Phone, MapPin, Globe, MessageSquare, Info } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import logo from '../img/logo.png';
 
 const Footer = () => {
   return (
@@ -9,8 +10,10 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-12 mb-20">
           <div className="md:col-span-2">
             <div className="flex items-center gap-2 mb-8">
-              <div className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center shadow-lg shadow-blue-600/20">
-                <span className="text-white font-black text-xs">EH</span>
+              <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-lg shadow-blue-600/20">
+                <span className="text-white font-black text-xs">
+                  <img src={logo} alt="EdTech Hub Logo" className="w-9 h-9" />
+                </span>
               </div>
               <span className="font-black tracking-tighter text-2xl uppercase text-foreground">EdTech Hub</span>
             </div>

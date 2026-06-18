@@ -40,7 +40,7 @@ const ContactForm = () => {
                 </div>
                 <div>
                   <p className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.2em] mb-1">Email Us</p>
-                  <p className="text-xl md:text-2xl font-black text-foreground break-all">vision@edtechhub.et</p>
+                  <p className="text-xl md:text-2xl font-black text-foreground break-all">ethiopiaedtech@gmail.com</p>
                 </div>
               </div>
               
@@ -70,7 +70,7 @@ const ContactForm = () => {
                   <input 
                     type="text" 
                     required
-                    placeholder="John Doe"
+                    placeholder="Abebe Bekele"
                     className="w-full px-6 py-4 bg-background border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium text-foreground placeholder:text-muted-foreground/50"
                   />
                 </div>
@@ -79,7 +79,7 @@ const ContactForm = () => {
                   <input 
                     type="email" 
                     required
-                    placeholder="john@example.com"
+                    placeholder="abebe@example.com"
                     className="w-full px-6 py-4 bg-background border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium text-foreground placeholder:text-muted-foreground/50"
                   />
                 </div>

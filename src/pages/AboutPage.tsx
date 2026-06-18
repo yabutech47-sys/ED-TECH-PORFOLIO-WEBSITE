@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Target, Users, Zap, Shield, Globe, Award, ChevronRight } from 'lucide-react';
 import team1 from '../img/team1.jpg';
@@ -7,6 +7,7 @@ import team3 from '../img/team3.jpg';
 import team4 from '../img/team4.jpg';
 import team5 from '../img/team5.jpg';
 import team6 from '../img/team6.jpg';
+import vision from '../img/vision2.png'; 
 
 const AboutPage = () => {
   const containerVariants = {
@@ -22,6 +23,9 @@ const AboutPage = () => {
     visible: { opacity: 1, y: 0 }
   };
 
+  const [teacherCount, setTeacherCount] = useState(0);
+  const [turnoverValue, setTurnoverValue] = useState(0);
+
   const team = [
     { name: "Inku Fassil", role: "CEO & Founder", img: team1 },
     { name: "Ruth Yeshitila", role: "Deputy CEO", img: team2 },
@@ -29,8 +33,32 @@ const AboutPage = () => {
     { name: "Yabsera Teshome", role: "Tech Lead", img: team3 },
     { name: "Abel Girma", role: "Training Coordinator", img: team5 },
     { name: "Kalkidan Teka", role: "Video Editor and Social Media Manager", img: team6 },
-    
   ];
+
+  useEffect(() => {
+    const duration = 1200;
+    const frameRate = 60;
+    const totalFrames = Math.round((duration / 1000) * frameRate);
+    let frame = 0;
+
+    const teacherTarget = 100;
+    const turnoverTarget = 100;
+
+    const easeOut = (t: number) => 1 - Math.pow(1 - t, 3);
+
+    const interval = window.setInterval(() => {
+      frame += 1;
+      const progress = easeOut(frame / totalFrames);
+      setTeacherCount(Math.round(teacherTarget * progress));
+      setTurnoverValue(Math.round(turnoverTarget * progress));
+
+      if (frame >= totalFrames) {
+        window.clearInterval(interval);
+      }
+    }, 1000 / frameRate);
+
+    return () => window.clearInterval(interval);
+  }, []);
 
   return (
     <div className="pt-40 pb-24">
@@ -79,6 +107,113 @@ const AboutPage = () => {
             <div className="absolute -bottom-10 -left-10 bg-background border border-border p-8 rounded-3xl shadow-2xl hidden md:block">
               <div className="text-4xl font-black text-primary">98%</div>
               <div className="text-sm font-bold text-muted-foreground uppercase">Satisfaction Rate</div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Vision Section */}
+      <section className="container mx-auto px-6 mb-24">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <motion.div 
+            initial={{ opacity: 0, x: -40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="order-2 lg:order-1"
+          >
+            <div className="aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-2xl relative group mx-auto lg:mx-0">
+              <img 
+                src={vision} 
+                alt="Our Vision" 
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+
+              
+
+              <div className="absolute bottom-6 left-6 grid gap-3 text-sm md:grid-cols-2 w-[calc(100%-3rem)]">
+                {[
+                  { icon: Target, label: "Growing Stronger" },
+                  { icon: Shield, label: "Building Our Future" },
+                  { icon: Zap, label: "Driving Mobility" },
+                  { icon: Users, label: "Stronger Partnerships" },
+                ].map((block, idx) => (
+                  <div key={idx} className="inline-flex items-center gap-3 rounded-full bg-background/95 border border-border px-4 py-3 shadow-sm">
+                    <div className="w-9 h-9 flex items-center justify-center rounded-2xl bg-primary/10 text-primary"><block.icon size={18} /></div>
+                    <span>{block.label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="order-1 lg:order-2"
+          >
+            <span className="inline-block px-4 py-1.5 mb-6 text-xs font-black tracking-widest uppercase bg-primary/10 text-primary rounded-full">
+              OUR VISION
+            </span>
+            <h2 className="text-5xl md:text-6xl font-black mb-8 leading-tight tracking-tighter">
+              Designing a future where every classroom is digitally fluent and wildly inspiring.
+            </h2>
+            <p className="text-xl text-muted-foreground leading-relaxed mb-10 max-w-xl">
+              We picture learning environments that balance human connection with intelligent technology, creating pathways for every student to thrive.
+            </p>
+
+            <div className="grid gap-4 sm:grid-cols-2 mb-10">
+              {[
+                { icon: Globe, title: "Accessible Everywhere", desc: "Learning that adapts to every community, device, and learner." },
+                { icon: Award, title: "Meaningful Impact", desc: "Programs built to inspire trust, recognition, and long-term growth." },
+                { icon: Users, title: "Teacher-First Support", desc: "Tools that empower educators and amplify classroom confidence." },
+                { icon: Zap, title: "Momentum by Design", desc: "Bold experiences that make adoption simple and exciting." },
+              ].map((item, index) => (
+                <motion.div 
+                  key={index}
+                  whileHover={{ y: -6 }}
+                  className="bg-card border border-border p-6 rounded-3xl shadow-sm hover:shadow-xl transition-all group"
+                >
+                  <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-4 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                    <item.icon size={24} />
+                  </div>
+                  <h3 className="text-lg font-black mb-2">{item.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="bg-primary/5 border border-primary/20 rounded-3xl p-8 shadow-sm">
+                <div className="text-xs uppercase tracking-[0.35em] text-primary font-black mb-3">Teachers Reached</div>
+                <div className="text-4xl md:text-5xl font-black text-primary">{teacherCount}K+</div>
+                <p className="mt-4 text-sm text-muted-foreground">Today, our programs support classroom growth across Ethiopia.</p>
+              </div>
+              <div className="bg-primary/5 border border-primary/20 rounded-3xl p-8 shadow-sm">
+                <div className="text-xs uppercase tracking-[0.35em] text-primary font-black mb-3">Revenue Momentum</div>
+                <div className="text-4xl md:text-5xl font-black text-primary">{turnoverValue}M+</div>
+                <p className="mt-4 text-sm text-muted-foreground">Annual turnover that powers new infrastructure, training, and expansion.</p>
+              </div>
+            </div>
+
+            <div className="mt-10 grid gap-4">
+              {[
+                { icon: Target, title: "Multiple project & contract wins", desc: "Expanding our impact through new partnerships and contracts." },
+                { icon: Shield, title: "Building our office in Addis Ababa", desc: "Construction of our new office is underway." },
+                { icon: Zap, title: "New mobility", desc: "Investing in mobility to drive our mission forward." },
+                { icon: Users, title: "Strong partnerships", desc: "Working with diverse state and non-state actors to transform education." },
+              ].map((item, index) => (
+                <div key={index} className="bg-card border border-border p-5 rounded-3xl shadow-sm flex gap-4 items-start">
+                  <div className="w-12 h-12 rounded-3xl bg-primary/10 text-primary flex items-center justify-center mt-1">
+                    <item.icon size={20} />
+                  </div>
+                  <div>
+                    <h4 className="text-base font-black mb-1">{item.title}</h4>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </motion.div>
         </div>
