@@ -7,7 +7,10 @@ import team3 from '../img/team3.jpg';
 import team4 from '../img/team4.jpg';
 import team5 from '../img/team5.jpg';
 import team6 from '../img/team6.jpg';
-import vision from '../img/vision2.png'; 
+import team7 from '../img/team7.jpg';
+import team8 from '../img/team8.jpg';
+import team9 from '../img/team9.jpg';
+import vision from '../img/vision2.png';
 
 const AboutPage = () => {
   const containerVariants = {
@@ -33,6 +36,9 @@ const AboutPage = () => {
     { name: "Yabsera Teshome", role: "Tech Lead", img: team3 },
     { name: "Abel Girma", role: "Training Coordinator", img: team5 },
     { name: "Kalkidan Teka", role: "Video Editor and Social Media Manager", img: team6 },
+    { name: "Habtamu Birhanu", role: "Research and Development Lead", img: team7 },
+    { name: "Dawit Kinfe", role: "Content and Training Specialist", img: team8 },
+    { name: "Fikir Mersha", role: "Financial Analyst", img: team9 },
   ];
 
   useEffect(() => {
@@ -78,7 +84,7 @@ const AboutPage = () => {
               <span className="text-primary">Knowledge Frontier.</span>
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed mb-8 max-w-xl">
-              EdTech Hub was born from a singular vision: to bridge the digital divide in Ethiopia's education system through elite-level technology and radical instructional design.
+              EdTech Hub ET is an Ethiopian social enterprise established in 2022. We work with schools, institutions, partners, and communities to improve education through practical digital solutions, training, research, and program support.
             </p>
             <div className="flex flex-wrap gap-4">
               <button className="px-8 py-4 bg-primary text-white rounded-full font-bold shadow-lg shadow-primary/20 hover:scale-105 transition-all">
@@ -184,7 +190,7 @@ const AboutPage = () => {
               ))}
             </div>
 
-            <div className="grid gap-4 sm:grid-cols-2">
+            {/* <div className="grid gap-4 sm:grid-cols-2">
               <div className="bg-primary/5 border border-primary/20 rounded-3xl p-8 shadow-sm">
                 <div className="text-xs uppercase tracking-[0.35em] text-primary font-black mb-3">Teachers Reached</div>
                 <div className="text-4xl md:text-5xl font-black text-primary">{teacherCount}K+</div>
@@ -195,9 +201,9 @@ const AboutPage = () => {
                 <div className="text-4xl md:text-5xl font-black text-primary">{turnoverValue}M+</div>
                 <p className="mt-4 text-sm text-muted-foreground">Annual turnover that powers new infrastructure, training, and expansion.</p>
               </div>
-            </div>
+            </div> */}
 
-            <div className="mt-10 grid gap-4">
+            {/* <div className="mt-10 grid gap-4">
               {[
                 { icon: Target, title: "Multiple project & contract wins", desc: "Expanding our impact through new partnerships and contracts." },
                 { icon: Shield, title: "Building our office in Addis Ababa", desc: "Construction of our new office is underway." },
@@ -214,7 +220,7 @@ const AboutPage = () => {
                   </div>
                 </div>
               ))}
-            </div>
+            </div> */}
           </motion.div>
         </div>
       </section>

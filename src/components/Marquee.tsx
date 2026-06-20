@@ -45,7 +45,7 @@ export default function Marquee() {
             className="flex gap-24 md:gap-40 items-center whitespace-nowrap px-12"
           >
             {[...LOGOS, ...LOGOS, ...LOGOS, ...LOGOS].map((logo, i) => (
-              <div key={i} className="w-32 md:w-48 h-20 flex items-center justify-center grayscale opacity-30 hover:grayscale-0 hover:opacity-100 transition-all duration-500 text-foreground">
+              <div key={i} className="w-32 md:w-48 h-20 flex items-center justify-center  opacity-100 hover:grayscale-0 hover:opacity-100 transition-all duration-500 text-foreground">
                 <img 
                   src={logo} 
                   alt={`Partner ${i}`} 

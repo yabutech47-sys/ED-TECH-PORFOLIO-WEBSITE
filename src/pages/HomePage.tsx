@@ -8,6 +8,7 @@ import AwardsSection from '../components/AwardsSection';
 import ContactForm from '../components/ContactForm';
 import Marquee from '../components/Marquee';
 import ScrollReveal from '../components/ScrollReveal';
+import TestimonialSection from '../components/Testimonials';
 
 const SectionDivider = ({ className = "" }: { className?: string }) => (
   <ScrollReveal direction="none" scale={1} duration={1} delay={0.1} threshold={0.5}>
@@ -76,6 +77,15 @@ const HomePage = () => {
           <Marquee />
         </ScrollReveal>
       </div>
+      <SectionDivider />
+
+      <div id="testimonials" className="relative z-10">
+        <ScrollReveal direction="up" distance={40} delay={0.1}>
+          <TestimonialSection />
+        </ScrollReveal>
+      </div>
+      
+      
 
       <div id="contact" className="relative z-10">
         <ScrollReveal direction="up" distance={40} delay={0.1} threshold={0.15}>

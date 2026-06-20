@@ -7,6 +7,7 @@ import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import ServicesPage from './pages/ServicesPage';
 import ProjectDetailPage from './pages/ProjectDetailPage';
+import TestimonialSection from './components/Testimonials.tsx';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/project/:projectId" element={<ProjectDetailPage />} />
+            <Route path="/testimonials" element={<TestimonialSection />} />
           </Routes>
         </Layout>
       </Router>

@@ -84,7 +84,7 @@ const Navbar = () => {
               to="/contact"
               className="px-6 py-2.5 bg-foreground text-background rounded-full text-sm font-black hover:scale-105 transition-all shadow-xl active:scale-95"
             >
-              Get Started
+              Get Involved
             </Link>
           </div>
         </div>

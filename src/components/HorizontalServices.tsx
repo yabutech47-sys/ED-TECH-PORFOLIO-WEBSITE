@@ -4,6 +4,11 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Laptop, Cpu, BookOpen, Palette, Users, ArrowRight, ArrowUpRight, Sparkles, ChevronRight, Fingerprint, Globe, Zap } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { PROJECTS } from '../data/projects';
+import serviceImage1 from '../img/service1.png';
+import serviceImage2 from '../img/service2.png';
+import serviceImage3 from '../img/service3.png';
+import serviceImage4 from '../img/service4.png';
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,35 +17,35 @@ const services = [
     title: "Digital Books",
     description: "Interactive reading experiences with embedded multimedia and Interactivity Based comprehension tools.",
     icon: BookOpen,
-    image: "https://storage.googleapis.com/dala-prod-public-storage/generated-images/33943c95-e4d1-4c21-8271-ff184160c372/digital-books-module-b1eecc98-1774609534565.webp",
+    image: serviceImage1,
     color: "from-blue-600 to-indigo-600"
   },
   {
     title: "Module Design",
     description: "Master the craft of UI/UX and visual storytelling with our industry-leading design team.",
     icon: Palette,
-    image: "https://storage.googleapis.com/dala-prod-public-storage/generated-images/33943c95-e4d1-4c21-8271-ff184160c372/design-training-e2d46b12-1774609534545.webp",
+    image: serviceImage2,
     color: "from-purple-600 to-pink-600"
   },
   {
     title: "LMS Support",
     description: "Empowering educators through our advanced Learning Management System with integrated teaching tools.",
     icon: Users,
-    image: "https://storage.googleapis.com/dala-prod-public-storage/generated-images/33943c95-e4d1-4c21-8271-ff184160c372/teachers-through-lms-website-ca65fa3a-1774609535071.webp",
+    image: serviceImage3,
     color: "from-cyan-500 to-blue-500"
   },
   {
     title: "Live Training",
     description: "Immersive workshops using holographic displays and and hands-on learning.",
     icon: Laptop,
-    image: "https://storage.googleapis.com/dala-prod-public-storage/generated-images/33943c95-e4d1-4c21-8271-ff184160c372/tech-education-future-921f7159-1774604060281.webp",
+    image: serviceImage4,
     color: "from-blue-400 to-cyan-400"
   },
   {
     title: "Tech Integration",
     description: "Seamlessly connecting legacy systems with future-ready infrastructure across Ethiopia.",
     icon: Cpu,
-    image: "https://storage.googleapis.com/dala-prod-public-storage/generated-images/33943c95-e4d1-4c21-8271-ff184160c372/tech-connectivity-ethiopia-6d67a62d-1774604054308.webp",
+    image: serviceImage4,
     color: "from-indigo-400 to-blue-600"
   }
 ];
