@@ -63,69 +63,76 @@ const HorizontalServices = () => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
+  const trackClasses = isMobile
+    ? 'flex flex-row items-center gap-4 pl-4 pr-8 w-full overflow-x-auto scroll-smooth snap-x snap-mandatory no-scrollbar'
+    : 'flex flex-row items-center gap-4 md:gap-12 pl-6 md:pl-[25vw] pr-6 md:pr-[20vw] w-max will-change-transform no-scrollbar';
+
   const handleRandomNavigate = () => {
     const randomProject = PROJECTS[Math.floor(Math.random() * PROJECTS.length)];
     navigate(`/project/${randomProject.id}`);
   };
 
   useLayoutEffect(() => {
-    let ctx = gsap.context(() => {
-      const section = sectionRef.current;
-      const container = containerRef.current;
-      
-      if (!section || !container) return;
+    let ctx: gsap.Context | null = null;
+    if (!isMobile) {
+      ctx = gsap.context(() => {
+        const section = sectionRef.current;
+        const container = containerRef.current;
+        
+        if (!section || !container) return;
 
-      const getScrollAmount = () => {
-        return section.scrollWidth - window.innerWidth;
-      };
+        const getScrollAmount = () => {
+          return section.scrollWidth - window.innerWidth;
+        };
 
-      // Set initial position
-      gsap.set(section, { x: 0 });
+        // Set initial position
+        gsap.set(section, { x: 0 });
 
-      // The Horizontal Scrolling Logic
-      gsap.to(section, {
-        x: () => -getScrollAmount(),
-        ease: "none",
-        scrollTrigger: {
-          trigger: container,
-          pin: true,
-          scrub: 1,
-          start: isMobile ? "top 10%" : "top 10%",
-          end: () => `+=${getScrollAmount()}`,
-          invalidateOnRefresh: true,
-          anticipatePin: 1,
-        }
-      });
-
-      // Entrance animation for cards
-      gsap.fromTo(".service-card", 
-        { 
-          opacity: 0, 
-          y: 40,
-          scale: 0.95
-        }, 
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          stagger: 0.1,
-          duration: 1,
-          ease: "power3.out",
+        // The Horizontal Scrolling Logic
+        gsap.to(section, {
+          x: () => -getScrollAmount(),
+          ease: "none",
           scrollTrigger: {
             trigger: container,
-            start: "top 85%",
-            toggleActions: "play none none none",
+            pin: true,
+            scrub: 1,
+            start: "top 10%",
+            end: () => `+=${getScrollAmount()}`,
+            invalidateOnRefresh: true,
+            anticipatePin: 1,
           }
-        }
-      );
-    }, containerRef);
+        });
+
+        // Entrance animation for cards
+        gsap.fromTo(".service-card", 
+          { 
+            opacity: 0, 
+            y: 40,
+            scale: 0.95
+          }, 
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            stagger: 0.1,
+            duration: 1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: container,
+              start: "top 85%",
+              toggleActions: "play none none none",
+            }
+          }
+        );
+      }, containerRef);
+    }
 
     const refresh = () => ScrollTrigger.refresh();
     window.addEventListener('resize', refresh);
     const timeout = setTimeout(refresh, 500);
 
     return () => {
-      ctx.revert();
+      ctx?.revert();
       window.removeEventListener('resize', refresh);
       clearTimeout(timeout);
     };
@@ -149,7 +156,7 @@ const HorizontalServices = () => {
       ref={containerRef} 
       className="relative bg-background overflow-hidden selection:bg-primary/30 py-8 md:py-16 no-scrollbar"
     >
-      <div className="min-h-[45vh] md:min-h-[50vh] flex flex-col justify-center overflow-hidden py-10">
+      <div className="min-h-[45vh] md:min-h-[50vh] flex flex-col justify-center overflow-x-visible py-10">
         
         {/* Section Header - Centered */}
         <div className="px-6 md:px-24 mb-10 md:mb-16 text-center relative z-10">
@@ -174,10 +181,11 @@ const HorizontalServices = () => {
         {/* Horizontal Scrolling Track */}
         <div 
           ref={sectionRef} 
-          className="flex flex-row items-center gap-6 md:gap-12 pl-6 md:pl-[25vw] pr-[20vw] w-max will-change-transform no-scrollbar"
+          className={trackClasses}
+          style={isMobile ? { WebkitOverflowScrolling: 'touch' } : undefined}
         >
           {/* Intro Content (now shown on desktop too) */}
-          <div className="service-card w-[240px] h-[320px] flex flex-col justify-center px-4 shrink-0">
+          <div className="service-card snap-start w-[64vw] max-w-[220px] h-[320px] flex flex-col justify-center px-4 shrink-0">
             <div className="flex items-center gap-2 text-primary mb-4">
               <Zap size={20} className="animate-pulse" />
                 <span className="font-black uppercase tracking-widest text-[10px]">Swipe to Explore</span>
@@ -198,9 +206,9 @@ const HorizontalServices = () => {
             <div 
               key={index}
               onClick={handleRandomNavigate}
-              className="service-card group relative h-[360px] md:h-[480px] w-[280px] md:w-[460px] flex-shrink-0 rounded-[2rem] md:rounded-[3rem] overflow-hidden bg-card border border-border/60 transition-all duration-500 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/10 cursor-pointer shadow-lg shadow-black/5"
+              className="service-card snap-start group relative h-[360px] md:h-[480px] w-[70vw] max-w-[420px] md:w-[460px] flex-shrink-0 rounded-[2rem] md:rounded-[3rem] overflow-hidden bg-card border border-border/60 transition-all duration-500 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/10 cursor-pointer shadow-lg shadow-black/5"
             >
-              <div className="absolute inset-0 bg-muted group-hover:hidden transition-opacity duration-300" />
+              <div className="absolute inset-0 bg-black/20 backdrop-blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <img 
                 src={service.image} 
                 alt={service.title}
@@ -245,7 +253,7 @@ const HorizontalServices = () => {
           {/* Call to Action Card */}
           <div 
             onClick={handleRandomNavigate}
-            className="service-card group relative h-[360px] md:h-[480px] w-[280px] md:w-[460px] flex-shrink-0 rounded-[2rem] md:rounded-[3rem] overflow-hidden bg-primary flex flex-col items-end justify-end text-left p-5 md:p-8 transition-all duration-700 cursor-pointer"
+            className="service-card snap-start group relative h-[360px] md:h-[480px] w-[70vw] max-w-[420px] md:w-[460px] flex-shrink-0 rounded-[2rem] md:rounded-[3rem] overflow-hidden bg-primary flex flex-col items-end justify-end text-left p-5 md:p-8 transition-all duration-700 cursor-pointer"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent opacity-20 group-hover:opacity-100 transition-opacity" />
             
@@ -272,7 +280,7 @@ const HorizontalServices = () => {
           </div>
 
           {/* Outro Content (now shown on desktop too) */}
-          <div className="service-card w-[240px] h-[320px] flex flex-col justify-center px-4 shrink-0">
+          <div className="service-card snap-start w-[64vw] max-w-[220px] h-[320px] flex flex-col justify-center px-4 shrink-0">
             <div className="w-12 h-12 bg-blue-600/10 rounded-2xl flex items-center justify-center mb-6">
                 <Globe className="text-blue-600 animate-spin-slow" size={24} />
               </div>

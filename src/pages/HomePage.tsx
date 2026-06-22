@@ -40,15 +40,15 @@ const HomePage = () => {
         </ScrollReveal>
       </div>
       
-      <SectionDivider />
+    
       
       <div id="services" className="relative z-10">
-        <HorizontalServices />
+        <HorizontalServices /> 
       </div>
 
+      
       <SectionDivider />
-
-      <div id="bento" className="relative z-10">
+      <div id="metrics" className="relative z-10">
         <ScrollReveal direction="up" distance={40} delay={0.1}>
           <BentoGrid />
         </ScrollReveal>

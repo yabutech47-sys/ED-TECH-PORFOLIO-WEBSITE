@@ -1,8 +1,15 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ChevronRight, Play } from 'lucide-react';
+import React, { useState } from 'react'; // Added useState
+import { motion, AnimatePresence } from 'framer-motion'; // Added AnimatePresence
+import { ChevronRight, Play, X } from 'lucide-react'; // Added X icon
+
+// Import your local video from your src folder here
+// Replace './your-video.mp4' with the actual path to your file
+import visionVideo from '../img/vision.mp4'; // Ensure the video file is in the src folder or adjust the path accordingly
 
 const Hero = () => {
+  // State to manage video modal visibility
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
+
   return (
     <section className="relative min-h-[90vh] md:min-h-screen w-full flex flex-col items-center justify-center overflow-hidden pt-32 pb-16 md:pt-40 md:pb-20">
       {/* Hero Visual Background */}
@@ -40,16 +47,19 @@ const Hero = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-16 md:mb-20">
-            <motion.button 
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="group relative px-8 py-4 bg-primary text-white rounded-full font-black text-lg overflow-hidden flex items-center gap-2 shadow-xl shadow-primary/20"
-            >
-              Start Your Journey
-              <ChevronRight className="group-hover:translate-x-1 transition-transform" />
-            </motion.button>
+            <motion.a
+  href="/about" // Now TypeScript is happy because this is an anchor tag!
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.95 }}
+  className="group relative px-8 py-4 bg-primary text-white dark:text-black rounded-full font-black text-lg overflow-hidden flex items-center gap-2 shadow-xl shadow-primary/20 cursor-pointer"
+>
+  Start Your Journey
+  <ChevronRight className="group-hover:translate-x-1 transition-transform" />
+</motion.a>
             
+            {/* Watch Vision Button - Click Opens Modal */}
             <motion.button 
+              onClick={() => setIsVideoOpen(true)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="flex items-center gap-3 px-8 py-4 rounded-full border border-border bg-background/50 hover:bg-muted transition-colors backdrop-blur-md font-bold"
@@ -62,6 +72,43 @@ const Hero = () => {
           </div>
         </motion.div>
       </div>
+
+      {/* Video Overlay Modal */}
+      <AnimatePresence>
+        {isVideoOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setIsVideoOpen(false)}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-4"
+          >
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()} // Prevents closing when clicking the player itself
+              className="relative w-full max-w-4xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-white/10"
+            >
+              {/* Close Button */}
+              <button
+                onClick={() => setIsVideoOpen(false)}
+                className="absolute top-4 right-4 z-10 p-2 rounded-full bg-black/50 text-white hover:bg-black/80 transition-colors"
+              >
+                <X size={24} />
+              </button>
+
+              {/* Video Player */}
+              <video
+                src={visionVideo}
+                className="w-full h-full object-cover"
+                controls
+                autoPlay
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
